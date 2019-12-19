@@ -73,10 +73,11 @@ const config = function (env) {
 					}
 				},
 				{
-					test: /.css$/,
+					test: /.(css|scss)$/,
 					use: [
 						MiniCssExtractPlugin.loader,
-						{ loader: "css-loader" }
+						{ loader: "css-loader" },
+						{ loader: "sass-loader" }
 					]
 				}
 			]
