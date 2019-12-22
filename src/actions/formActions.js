@@ -4,10 +4,16 @@ import {
 } from '../constants/actionTypes';
 
 export const initFormState = (formConfig) => {
+    const config = (Object.entries(formConfig).reduce(((acc, currentValue) => {
+        return({
+            ...acc,
+            [currentValue[0]]: currentValue[1].initial
+        })
+    }), {}));
     return({
         type: INIT_FORM_STATE,
-        formConfig
-    })
+        formConfig: config
+    });
 };
 
 export const updateFormState = (key, value) => {
@@ -16,4 +22,4 @@ export const updateFormState = (key, value) => {
         key,
         value
     })
-}
+};
