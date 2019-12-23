@@ -3,12 +3,31 @@ export const formConfigs = {
         fooBoardName: {
             type: "text",
             label: 'Board Name',
-            initial: ''
+            initial: 'Board name'
         },
         fooBoardSubtitle: {
             type: 'text',
             label: 'Subtitle',
-            initial: ''
+            initial: 'This is a board for the following purpose: not yet mentioned, this is just an initial state'
         }
-    }
+    },
+	lists: {
+		listTitle: {
+			type: "text",
+			label: "List Title",
+			initial: 'List title'
+		}
+	},
+	cards: {
+		cardTitle: {
+			type: "text",
+			label: "Card Title",
+			initial: 'Title'
+		},
+		cardDesciption: {
+			type: "text",
+			label: 'Description',
+			initial: 'Desc'
+		}
+	}
 };

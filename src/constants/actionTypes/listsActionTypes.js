@@ -1,0 +1,3 @@
+export const UPDATE_LIST_STATE = 'UPDATE_LIST_STATE';
+export const ADD_NEW_LIST = 'ADD_NEW_LIST';
+export const ADD_NEW_CARD_ID = 'ADD_NEW_CARD_ID';

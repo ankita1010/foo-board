@@ -5,10 +5,11 @@ export const TextBox = (props) => {
         isDisabled,
         value,
         formLabel,
-        formName
+        formName,
+		className
     } = props;
     return (
-        <div>
+        <div className="input-wrapper">
             <label htmlFor={formName}>
                 {formLabel}
             </label>
@@ -18,6 +19,8 @@ export const TextBox = (props) => {
                 id={formName}
                 data-key={formName}
                 disabled={isDisabled}
+				className={className || 'foo-bar-input'}
+				autoComplete="off"
             />
         </div>
     )
