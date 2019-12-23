@@ -6,7 +6,7 @@ import './card-details.scss';
 export const CardsDetailsComponent = (props) => {
 
 	const [currentCard, setCurrentCard] = useState(null);
-
+	const [showListOptions, setShowListOptions] = useState(false);
 	const {
 		currentListId,
 		cards,
@@ -28,6 +28,7 @@ export const CardsDetailsComponent = (props) => {
 				No cards added for this list!
 		</p>
 		);
+	
 	return (
 		<div className="cards-wrapper">
 			<CardModal
@@ -48,10 +49,16 @@ export const CardsDetailsComponent = (props) => {
 						<div className="card-tile">
 							<div className="card-header">
 								<h5>{cardTitle}</h5>
+								<div>
+								<i
+									className="fa fa-share-square"
+									onClick={() => setCurrentCard(cardId)}
+								/>
 								<i
 									className="fa fa-edit"
 									onClick={() => setCurrentCard(cardId)}
 								/>
+								</div>
 							</div>
 							<div className="card-desc">
 								<p>{cardDesciption}</p>

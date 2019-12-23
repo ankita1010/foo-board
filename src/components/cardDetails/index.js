@@ -8,9 +8,11 @@ import {
 const mapStateToProps = (state) => {
 	const {
 		cards,
+		lists
 	} = state;
 	return ({
-		...cards
+		...cards,
+		...lists
 	});
 }
 export const CardsDetails = connect(
