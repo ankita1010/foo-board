@@ -2,7 +2,8 @@ import { BoardDetailsComponent } from './BoardDetails';
 import { connect } from 'react-redux';
 import {
 	updateFooBoardState,
-	addNewList
+	addNewList,
+	deleteBoard
 } from '../../actions';
 
 const mapStateToProps = (state) => {
@@ -23,6 +24,7 @@ export const BoardDetails = connect(
 	mapStateToProps,
 	{
 		updateFooBoardState,
-		addNewList
+		addNewList,
+		deleteBoard
 	}
 )(BoardDetailsComponent);

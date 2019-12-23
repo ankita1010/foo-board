@@ -1,9 +1,10 @@
 import {
 	UPDATE_CARDS_STATE,
 	ADD_NEW_CARD,
-	EDIT_CARD_DETAILS
+	EDIT_CARD_DETAILS,
+	DELETE_CARD
 } from '../constants/actionTypes';
-import { addNewCardId } from './listActions';
+import { addNewCardId, deleteCardId } from './listActions';
 
 export const addNewCard = (currentListId) => (dispatch, getState) => {
 	const { forms } = getState();
@@ -21,10 +22,16 @@ export const addNewCard = (currentListId) => (dispatch, getState) => {
 	});
 	dispatch(addNewCardId(cardId, currentListId));
 };
-export const editCardDetails = (cardId, key, value) => {
+export const editCardDetails = (cardId, newCardDetails) => {
 	return ({
 	type: EDIT_CARD_DETAILS,
 	cardId,
-	key,
-	value
-})}
+	newCardDetails
+})};
+export const deleteCard = (cardId, parentListId) => (dispatch) => {
+	dispatch({
+		type: DELETE_CARD,
+		cardId
+	});
+	dispatch(deleteCardId(cardId, parentListId))
+};

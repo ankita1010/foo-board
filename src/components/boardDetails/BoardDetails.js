@@ -8,7 +8,8 @@ export const BoardDetailsComponent = (props) => {
 		fooBoards,
 		currentBoard,
 		updateFooBoardState,
-		addNewList
+		addNewList,
+		deleteBoard
 	} = props;
 	const currentBoardDetails = fooBoards.find(
 		(eachBoard) => (eachBoard.fooBoardId === currentBoard)
@@ -21,7 +22,9 @@ export const BoardDetailsComponent = (props) => {
 	const exitCurrentBoard = () => {
 		updateFooBoardState('currentBoard', null);
 	};
-
+	const deleteCurrentBoard = () => {
+		deleteBoard(currentBoard)
+	};
 	return (
 		<div className="board-details-block">
 			<div className="board-actions-and-details">
@@ -32,18 +35,18 @@ export const BoardDetailsComponent = (props) => {
 					<h2>{fooBoardName}</h2>
 					<p>{fooBoardSubtitle}</p>
 				</div>
-				<button className="theme-btn">
+				<button onClick={deleteCurrentBoard} className="theme-btn">
 					<i className="fa fa-trash" />
 				</button>
 			</div>
 			<ListsDetails />
-		<div className="create-new-board-section">
-			<CreateNewData
-				type="lists"
-				buttonCreateLabel={<i className="fa fa-plus" />}
-				handleOnAdd={addNewList}
-				handleOnCancel={() => { }}
-			/>
+			<div className="create-new-board-section">
+				<CreateNewData
+					type="lists"
+					buttonCreateLabel={<i className="fa fa-plus" />}
+					handleOnAdd={addNewList}
+					handleOnCancel={() => { }}
+				/>
 			</div>
 		</div>
 	);

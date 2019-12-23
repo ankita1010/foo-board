@@ -7,7 +7,8 @@ export const ListsDetailsComponent = (props) => {
 	const {
 		currentBoard,
 		lists,
-		addNewCard
+		addNewCard,
+		deleteListById
 	} = props;
 	const listsForCurrentBoard = lists.filter(eachListItem => (
 		eachListItem.parentBoard === currentBoard
@@ -45,7 +46,10 @@ export const ListsDetailsComponent = (props) => {
 									handleOnCancel={() => { }}
 									buttonCreateLabel={'Add New Card'}
 								/>
-								<button className="delete-btn">
+								<button
+									className="delete-btn"
+									onClick={() => deleteListById(listId)}
+								>
 									Delete List
 								</button>
 							</div>

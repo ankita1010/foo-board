@@ -10,7 +10,8 @@ export const CardsDetailsComponent = (props) => {
 	const {
 		currentListId,
 		cards,
-		editCardDetails
+		editCardDetails,
+		deleteCard
 	} = props;
 
 	const cardsForCurrentList = cards.filter(eachListItem => (
@@ -19,10 +20,6 @@ export const CardsDetailsComponent = (props) => {
 
 	const handleModalClose = () => {
 		setCurrentCard(null);
-	};
-	const handleCardChange = (key, value) => {
-		const {cardId} = currentCard;
-		editCardDetails(cardId, key, value);
 	};
 
 	if (!cardsForCurrentList.length)
@@ -37,7 +34,8 @@ export const CardsDetailsComponent = (props) => {
 				currentCard={currentCard}
 				cards={cards}
 				handleModalClose={handleModalClose}
-				handleOnTextChange={handleCardChange}
+				handleSaveChanges={editCardDetails}
+				handleDeleteCard={deleteCard}
 			/>
 			{
 				cardsForCurrentList.map(eachCardItem => {

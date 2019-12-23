@@ -1,7 +1,8 @@
 import {
 	UPDATE_CARDS_STATE,
 	ADD_NEW_CARD,
-	EDIT_CARD_DETAILS
+	EDIT_CARD_DETAILS,
+	DELETE_CARD
 } from '../constants/actionTypes';
 
 const initialCardState = {
@@ -41,17 +42,12 @@ export default (state = initialCardState, action) => {
 		case EDIT_CARD_DETAILS: {
 			const {
 				cardId,
-				key,
-				value
+				newCardDetails
 			} = action;
 			const { cards } = state;
 			const newCardsState = cards.map(eachCardItem => {
 				if (eachCardItem.cardId === cardId) {
-					const newItem = {
-						...eachCardItem,
-						[key]: value
-					};
-					return newItem
+					return newCardDetails
 				};
 				return eachCardItem;
 			});
@@ -60,6 +56,14 @@ export default (state = initialCardState, action) => {
 				cards: newCardsState
 			});
 		};
+		case DELETE_CARD: {
+			const { cardId } = action;
+			const { cards } = state;
+			return ({
+				...state,
+				cards: cards.filter(eachCardItem => eachCardItem.cardId !== cardId)
+			})
+		}
 		default: return state;
 	};
 };

@@ -2,7 +2,7 @@ import {
 	UPDATE_FOO_BOARD_STATE,
 	ADD_NEW_BOARD,
 	ADD_NEW_LIST_ID,
-
+	DELETE_BOARD
 } from '../constants/actionTypes';
 const initialFooBoardState = {
 	fooBoards: [],
@@ -50,6 +50,18 @@ export default (state = initialFooBoardState, action) => {
 						: eachBoardItem
 				)))
 			});
+		};
+		case DELETE_BOARD: {
+			const { boardId } = action;
+			const { fooBoards } = state;
+			return ({
+				...state,
+				fooBoards: fooBoards.filter(
+					eachBoardItem => eachBoardItem.fooBoardId !== boardId
+				),
+				currentBoard
+				: null
+			})
 		};
 		default: return state;
 	}

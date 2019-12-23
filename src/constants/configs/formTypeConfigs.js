@@ -29,5 +29,5 @@ export const formConfigs = {
 			label: 'Description',
 			initial: 'Desc'
 		}
-	}
+	},
 };

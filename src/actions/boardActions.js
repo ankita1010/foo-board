@@ -1,8 +1,11 @@
 import {
 	UPDATE_FOO_BOARD_STATE,
 	ADD_NEW_LIST_ID,
-	ADD_NEW_BOARD
+	ADD_NEW_BOARD,
+	DELETE_BOARD
 } from '../constants/actionTypes';
+import {deleteAllLists} from './listActions';
+
 export const addNewBoard = () => (dispatch, getState) => {
 	const { forms } = getState();
 	const {
@@ -32,3 +35,11 @@ export const addNewListId = (listId, boardId) => ({
 	listId,
 	boardId
 });
+
+export const deleteBoard =(boardId) => (dispatch, getState) => {
+	dispatch({
+		type: DELETE_BOARD,
+		boardId
+	});
+	dispatch(deleteAllLists(boardId))
+}
