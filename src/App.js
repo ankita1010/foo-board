@@ -1,12 +1,15 @@
-import React from 'react';
+import {Main} from './components';
+import { connect } from 'react-redux';
+import { addNewBoard, updateFooBoardState } from './actions'
+import './App.scss';
 
-import './App.css';
-
-const App = () => {
-	return (
-		<div className="app-block">
-			Hello
-		</div>
-	)
+const mapStateToProps = (state) => {
+	const { boards, forms } = state;
+	return ({
+		...boards,
+		...forms
+	});
 };
-export default App;
+export default connect(mapStateToProps,
+	{ addNewBoard, updateFooBoardState }
+)(Main);

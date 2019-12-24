@@ -1,0 +1,2 @@
+export const INIT_FORM_STATE = 'INIT_FORM_STATE';
+export const UPDATE_FORM_STATE = 'UPDATE_FORM_STATE';

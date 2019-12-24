@@ -1,0 +1,6 @@
+export const UPDATE_LIST_STATE = 'UPDATE_LIST_STATE';
+export const ADD_NEW_LIST = 'ADD_NEW_LIST';
+export const ADD_NEW_CARD_ID = 'ADD_NEW_CARD_ID';
+export const DELETE_CARD_ID = 'DELETE_CARD_ID';
+export const DELETE_ALL_LISTS = 'DELETE_ALL_LISTS';
+export const DELETE_LIST_BY_ID = 'DELETE_LIST_BY_ID';
