@@ -1,5 +1,5 @@
 @import "../../variables.scss";
-$fooBoardBg: #edc7b773;
+$fooBoardBg: white;
 .app-block {
   min-width: 100vw;
   min-height: 100vh;
@@ -49,7 +49,7 @@ $fooBoardBg: #edc7b773;
   }
   .no-boards-msg {
     font-size: 20px;
-    color: #123c69;
+    color: $secondaryTextColor;
     text-align: center;
     margin-top: 40px;
   }
@@ -111,6 +111,7 @@ $fooBoardBg: #edc7b773;
       margin: 10px;
       transition: box-shadow 0.3s ease-in-out;
       padding: 10px 20px;
+	  border: 1px solid lightgray;
       cursor: pointer;
       h3 {
         color: $primaryTextColor;

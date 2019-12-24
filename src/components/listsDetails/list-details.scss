@@ -1,6 +1,6 @@
 @import "../../variables.scss";
 
-$tileBg: #fdf1ed;
+$tileBg: white;
 
 .list-details-block {
   width: 95%;
@@ -20,6 +20,7 @@ $tileBg: #fdf1ed;
     position: relative;
     box-shadow: none;
     border-radius: 4px;
+	border: 1px solid lightgray;
     margin: 10px;
     transition: box-shadow 0.3s ease-in-out;
     padding: 10px 20px;
