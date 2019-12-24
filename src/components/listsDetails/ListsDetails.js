@@ -21,7 +21,12 @@ export const ListsDetailsComponent = (props) => {
 		const listTileEl = document.getElementById(listId);
 			listTileEl.scrollTop = listTileEl.scrollHeight;
 	};
-
+	if(!listsForCurrentBoard.length) 
+	return (
+		<div className="no-boards-msg">
+			No lists added for this board yet!
+		</div>
+	)
 	return (
 		<div className="list-details-block">
 			{

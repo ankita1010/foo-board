@@ -8,7 +8,7 @@
     flex-direction: column;
     position: relative;
     align-items: center;
-    height: 70px;
+    height: 77px;
     margin: 10px 0;
     border: 1px solid $primaryTextColor;
     .card-header {
@@ -31,6 +31,7 @@
     .card-desc {
       width: 90%;
 	  color: $secondaryTextColor;
+	  margin-bottom: 3px;
     }
     .list-options {
       position: absolute;
