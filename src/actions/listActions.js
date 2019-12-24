@@ -15,6 +15,7 @@ export const addNewList = () => (dispatch, getState) => {
 	} = getState();
 	const { listTitle } = forms;
 	const { currentBoard } = boards;
+	if(listTitle) {
 	const listId = Math.random().toString().slice(2);
 	dispatch({
 		type: ADD_NEW_LIST,
@@ -22,7 +23,8 @@ export const addNewList = () => (dispatch, getState) => {
 		listTitle,
 		listId
 	});
-	dispatch(addNewListId(listId, currentBoard))
+	dispatch(addNewListId(listId, currentBoard));
+	}
 };
 export const updateListState = (key, value) => ({
 	type: UPDATE_LIST_STATE,

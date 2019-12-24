@@ -6,7 +6,9 @@
     border-radius: 4px;
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
+	overflow: hidden;
     height: 70px;
     margin: 10px 0;
     border: 1px solid $primaryTextColor;
@@ -14,16 +16,47 @@
       width: 90%;
       display: flex;
       justify-content: space-between;
+	  margin-top: 5px;
       h5,
       i {
-        margin: 5px 4px;
+        margin: 5px 2px;
       }
-	  i {
-		  cursor: pointer;
+      i {
+        cursor: pointer;
+		color: $secondaryTextColor;
+      }
+	  h5 {
+		  color: $primaryTextColor;
 	  }
     }
     .card-desc {
       width: 90%;
+	  color: $secondaryTextColor;
+    }
+    .list-options {
+      position: absolute;
+      right: 13%;
+      top: 24px;
+      background: white;
+      padding: 10px 20px;
+      width: 59%;
+      border-radius: 4px;
+      border: 1px solid $primaryTextColor;
+	  z-index: 1;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p {
+          width: 90%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        i {
+          color: $primaryTextColor;
+        }
+      }
     }
   }
   .card-modal-backdrop {
@@ -46,69 +79,69 @@
       background: white;
       border-radius: 4px;
       border: 1px solid $primaryTextColor;
-	  display: flex;
-	  align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-	  .card-modal-header {
-		  display: flex;
-		  align-items: center;
-		  justify-content: space-between;
-		  width: 90%;
-		  margin: 10px 0;
-      height: 70px;
-    }
-    .modal-body{
-      height: calc(100% - 125px);
-      width: 90%;
-      overflow: auto;
       display: flex;
+      align-items: center;
       flex-direction: column;
-      textarea {
-        min-height: 70px;
+      justify-content: space-between;
+      .card-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 90%;
+        margin: 10px 0;
+        height: 70px;
+      }
+      .modal-body {
+        height: calc(100% - 125px);
+        width: 90%;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        textarea {
+          min-height: 70px;
+        }
+        .card-detail-input {
+          width: 99%;
+          margin-bottom: 20px;
+        }
+      }
+
+      .save-changes-btn {
+        background-color: $primaryTextColor;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        width: 100px;
+        min-height: 40px;
+      }
+      .delete-btn {
+        background-color: transparent;
+        border-radius: 4px;
+        border: 1px solid $primaryTextColor;
+        width: 100px;
+        min-height: 40px;
+      }
+      .modal-footer {
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 5px 0;
+        button {
+          width: 49%;
+        }
       }
       .card-detail-input {
-        width: 99%;
-        margin-bottom: 20px;
+        border: none;
+        background: transparent;
+        font-size: 20px;
+        &:focus {
+          border: none;
+          box-shadow: none;
+          outline: none;
+          color: $primaryTextColor;
+        }
       }
-    }
-
-    .save-changes-btn {
-      background-color: $primaryTextColor;
-      color: white;
-      border-radius: 4px;
-      border: none;
-      width: 100px;
-      min-height: 40px;
-    }
-    .delete-btn {
-      background-color: transparent;
-      border-radius: 4px;
-      border: 1px solid $primaryTextColor;
-      width: 100px;
-      min-height: 40px;
-    }
-    .modal-footer {
-      height: 50px;
-      display: flex;
-      justify-content: space-between;
-      width: 90%;
-      margin: 5px 0;
-      button {
-        width: 49%;
-      }
-    }
-    		  .card-detail-input {
-			  border: none;
-			  background: transparent;
-			  font-size: 20px;
-			  &:focus {
-				  border: none;
-				  box-shadow: none;
-				  outline: none;
-				  color: $primaryTextColor;
-			  }
-		  }
     }
   }
 }

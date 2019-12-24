@@ -2,7 +2,8 @@ import { CardsDetailsComponent } from './CardsDetails';
 import { connect } from 'react-redux';
 import {
 	editCardDetails,
-	deleteCard
+	deleteCard,
+	moveCard
 } from '../../actions';
 
 const mapStateToProps = (state) => {
@@ -19,6 +20,7 @@ export const CardsDetails = connect(
 	mapStateToProps,
 	{
 		editCardDetails,
-		deleteCard
+		deleteCard,
+		moveCard
 	}
 )(CardsDetailsComponent);
