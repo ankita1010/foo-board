@@ -3,11 +3,13 @@ export const formConfigs = {
         fooBoardName: {
             type: "text",
             label: 'Board Name',
+			max: 50,
             initial: ''
         },
         fooBoardSubtitle: {
             type: 'text',
             label: 'Subtitle',
+			max: 100,
             initial: ''
         }
     },
@@ -15,6 +17,7 @@ export const formConfigs = {
 		listTitle: {
 			type: "text",
 			label: "List Title",
+			max: 50,
 			initial: ''
 		}
 	},

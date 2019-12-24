@@ -6,7 +6,9 @@ export const TextBox = (props) => {
         value,
         formLabel,
         formName,
-		className
+		className,
+		maxValue,
+		placeholder
     } = props;
     return (
         <div className="input-wrapper">
@@ -15,7 +17,9 @@ export const TextBox = (props) => {
             </label>
             <input
                 onChange={handleOnChange}
+				data-max={maxValue || ''}
                 value={value}
+				placeholder={placeholder}
                 id={formName}
                 data-key={formName}
                 disabled={isDisabled}

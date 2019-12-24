@@ -25,12 +25,22 @@
 		  color: $primaryTextColor;
 		  margin: 5px 0;
 		  font-weight: 300;
+		  height: 30px;
+		  max-width: 90%;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  white-space: nowrap;
 	  }
     }
     .card-desc {
       width: 90%;
 	  color: $secondaryTextColor;
-	  margin-bottom: 3px;
+	  margin-bottom: 3px; 
+	  p{
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  white-space: nowrap;
+	  }
     }
     .list-options {
       position: absolute;
@@ -90,6 +100,9 @@
         width: 90%;
         margin: 10px 0;
         height: 70px;
+		 .card-detail-input {
+			width: 80%;
+		}
       }
 	  button {
 		  font-size: 14px;

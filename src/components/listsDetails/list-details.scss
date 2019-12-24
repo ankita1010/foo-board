@@ -30,6 +30,9 @@ $tileBg: white;
         margin: 0;
         font-weight: 400;
         padding-bottom: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .lists-cards {
         color: $secondaryTextColor;
@@ -55,8 +58,8 @@ $tileBg: white;
         border-radius: 4px;
         font-size: 14px;
         cursor: pointer;
-              background-color: #ece9e9;
-              color: #1e2a70;
+        background-color: #ece9e9;
+        color: #1e2a70;
       }
       .create-btn-block {
         width: 48%;

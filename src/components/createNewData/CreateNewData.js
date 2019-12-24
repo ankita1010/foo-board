@@ -24,7 +24,14 @@ export const CreateNewDataComponent = (props) => {
 	};
 	const onInputChange = (event) => {
 		const { value, dataset } = event.target;
-		updateFormState(dataset.key, value)
+		const maxValue = parseInt(dataset.max, 10) || 0;
+		if (!maxValue) {
+			updateFormState(dataset.key, value)
+		}
+		else if (value.length <= maxValue) {
+			updateFormState(dataset.key, value);
+		}
+
 	};
 	const handleAddData = () => {
 		handleHideForm();
@@ -46,7 +53,7 @@ export const CreateNewDataComponent = (props) => {
 			<div className="forms-block">
 				{
 					Object.entries(currentConfig).map(([key, value]) => {
-						const { type, label } = value;
+						const { type, label, max } = value;
 						switch (type) {
 							case "text":
 								return (
@@ -56,6 +63,8 @@ export const CreateNewDataComponent = (props) => {
 										formLabel={label}
 										value={formState[key]}
 										handleOnChange={onInputChange}
+										maxValue={max}
+										placeholder={max ? `Maximum ${max} characters` : ''}
 									/>
 								);
 						}
