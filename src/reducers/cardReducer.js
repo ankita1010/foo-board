@@ -3,7 +3,8 @@ import {
 	ADD_NEW_CARD,
 	EDIT_CARD_DETAILS,
 	DELETE_CARD,
-	MOVE_CARD
+	MOVE_CARD,
+	DELETE_ALL_CARDS_FOR_LISTIDS
 } from '../constants/actionTypes';
 
 const initialCardState = {
@@ -66,22 +67,32 @@ export default (state = initialCardState, action) => {
 			})
 		};
 		case MOVE_CARD: {
-			const {cardId, listId} = action;
-			const {cards} = state;
-			return({
+			const { cardId, listId } = action;
+			const { cards } = state;
+			return ({
 				...state,
 				cards: cards.map(
 					eachCardItem => (
 						eachCardItem.cardId === cardId ?
-						({
-							...eachCardItem,
-							parentListId: listId
-						})
-						: eachCardItem
+							({
+								...eachCardItem,
+								parentListId: listId
+							})
+							: eachCardItem
 					)
 				)
 			});
 		};
+		case DELETE_ALL_CARDS_FOR_LISTIDS: {
+			const { listIds } = action;
+			const { cards } = state;
+			return ({
+				...state,
+				cards: cards.filter(
+					eachCardItem =>
+						!listIds.includes(eachCardItem.parentListId))
+			})
+		}
 		default: return state;
 	};
 };

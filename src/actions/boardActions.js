@@ -30,11 +30,7 @@ export const updateFooBoardState = (key, value) => {
 		value
 	});
 };
-export const addNewListId = (listId, boardId) => ({
-	type: ADD_NEW_LIST_ID,
-	listId,
-	boardId
-});
+
 
 export const deleteBoard =(boardId) => (dispatch, getState) => {
 	dispatch({

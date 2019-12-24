@@ -1,8 +1,6 @@
 import {
 	UPDATE_LIST_STATE,
 	ADD_NEW_LIST,
-	ADD_NEW_CARD_ID,
-	DELETE_CARD_ID,
 	DELETE_ALL_LISTS,
 	DELETE_LIST_BY_ID
 } from '../constants/actionTypes';
@@ -28,46 +26,11 @@ export default (state = initialListState, action) => {
 			const newListItem = {
 				parentBoard: currentBoard,
 				listTitle,
-				listId,
-				cardIds: []
+				listId
 			};
 			return ({
 				...state,
 				lists: [newListItem , ...lists]
-			});
-		};
-
-		case ADD_NEW_CARD_ID: {
-			const {
-				cardId,
-				listId
-			} = action;
-			const { lists } = state;
-			return ({
-				...state,
-				lists: lists.map(eachListItem => (
-					eachListItem.listId === listId ?
-						({
-							...eachListItem,
-							cardIds: [...eachListItem.cardIds, cardId]
-						})
-						: eachListItem
-				))
-			});
-		};
-		case DELETE_CARD_ID: {
-			const { cardId, listId } = action;
-			const { lists } = state;
-			return ({
-				...state,
-				lists: lists.map(eachListItem => (
-					eachListItem.listId === listId ?
-						({
-							...eachListItem,
-							cardIds: eachListItem.cardIds.filter(eachCardId => eachCardId !== cardId)
-						})
-						: eachListItem
-				))
 			});
 		};
 

@@ -3,9 +3,9 @@ import {
 	ADD_NEW_CARD,
 	EDIT_CARD_DETAILS,
 	DELETE_CARD,
-	MOVE_CARD
+	MOVE_CARD,
+	DELETE_ALL_CARDS_FOR_LISTIDS
 } from '../constants/actionTypes';
-import { addNewCardId, deleteCardId } from './listActions';
 
 export const addNewCard = (currentListId) => (dispatch, getState) => {
 	const { forms } = getState();
@@ -22,7 +22,6 @@ export const addNewCard = (currentListId) => (dispatch, getState) => {
 			currentListId,
 			cardId
 		});
-		dispatch(addNewCardId(cardId, currentListId));
 	}
 };
 export const editCardDetails = (cardId, newCardDetails) => {
@@ -37,7 +36,6 @@ export const deleteCard = (cardId, parentListId) => (dispatch) => {
 		type: DELETE_CARD,
 		cardId
 	});
-	dispatch(deleteCardId(cardId, parentListId))
 };
 export const moveCard = (cardId, listId) => {
 	return ({
@@ -45,4 +43,10 @@ export const moveCard = (cardId, listId) => {
 		cardId,
 		listId
 	});
+};
+export const deleteAllCardsByListIds = (listIds) => {
+	return({
+		type: DELETE_ALL_CARDS_FOR_LISTIDS,
+		listIds
+	})
 }

@@ -1,7 +1,6 @@
 import {
 	UPDATE_FOO_BOARD_STATE,
 	ADD_NEW_BOARD,
-	ADD_NEW_LIST_ID,
 	DELETE_BOARD
 } from '../constants/actionTypes';
 const initialFooBoardState = {
@@ -31,26 +30,11 @@ export default (state = initialFooBoardState, action) => {
 				fooBoards: [...fooBoards, {
 					fooBoardName,
 					fooBoardSubtitle,
-					fooBoardId,
-					listIds: []
+					fooBoardId
 				}]
 			});
 		};
-		case ADD_NEW_LIST_ID: {
-			const { listId, boardId } = action;
-			const { fooBoards } = state;
-			return ({
-				...state,
-				fooBoards: fooBoards.map((eachBoardItem => (
-					eachBoardItem.fooBoardId === boardId ?
-						({
-							...eachBoardItem,
-							listIds: [...eachBoardItem.listIds, listId]
-						})
-						: eachBoardItem
-				)))
-			});
-		};
+
 		case DELETE_BOARD: {
 			const { boardId } = action;
 			const { fooBoards } = state;

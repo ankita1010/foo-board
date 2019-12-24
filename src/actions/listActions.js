@@ -6,7 +6,7 @@ import {
 	DELETE_ALL_LISTS,
 	DELETE_LIST_BY_ID
 } from '../constants/actionTypes';
-import {addNewListId} from './boardActions';
+import { deleteAllCardsByListIds } from './cardActions';
 
 export const addNewList = () => (dispatch, getState) => {
 	const {
@@ -15,15 +15,14 @@ export const addNewList = () => (dispatch, getState) => {
 	} = getState();
 	const { listTitle } = forms;
 	const { currentBoard } = boards;
-	if(listTitle) {
-	const listId = Math.random().toString().slice(2);
-	dispatch({
-		type: ADD_NEW_LIST,
-		currentBoard,
-		listTitle,
-		listId
-	});
-	dispatch(addNewListId(listId, currentBoard));
+	if (listTitle) {
+		const listId = Math.random().toString().slice(2);
+		dispatch({
+			type: ADD_NEW_LIST,
+			currentBoard,
+			listTitle,
+			listId
+		});
 	}
 };
 export const updateListState = (key, value) => ({
@@ -31,21 +30,22 @@ export const updateListState = (key, value) => ({
 	key,
 	value
 });
-export const addNewCardId = (cardId, listId) => ({
-	type: ADD_NEW_CARD_ID,
-	cardId,
-	listId
-});
-export const deleteCardId = (cardId, listId) => ({
-	type: DELETE_CARD_ID,
-	cardId,
-	listId
-});
-export const deleteAllLists = (boardId) => (dispatch) => {
+
+export const deleteAllLists = (boardId) => (dispatch, getState) => {
+	const { lists } = getState();
+	const { lists: currentLists } = lists;
+	const listsToBeDeleted = currentLists.reduce((acc, currentval) => (
+		currentval.parentBoard === boardId ?
+			[...acc, currentval.listId]
+			: acc
+
+	), []);
+	
+	dispatch(deleteAllCardsByListIds(listsToBeDeleted));
 	dispatch({
 		type: DELETE_ALL_LISTS,
 		boardId
-	})
+	});
 };
 
 export const deleteListById = (listId) => ({
