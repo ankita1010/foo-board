@@ -61,7 +61,7 @@ export const CardsDetailsComponent = (props) => {
 					return (
 						<div className="card-tile">
 							<div className="card-header">
-								<h3>{cardTitle}</h3>
+								<h3 className="card-title">{cardTitle}</h3>
 								<div>
 									<i
 										className="fa fa-share-square"

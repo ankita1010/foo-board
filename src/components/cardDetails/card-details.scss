@@ -10,22 +10,21 @@
     align-items: center;
     height: 77px;
     margin: 10px 0;
-    border: 1px solid $primaryTextColor;
+        box-shadow:1px 1px 3px 0px #2f3a7d63;
     .card-header {
       width: 90%;
       display: flex;
       justify-content: space-between;
 	  margin-top: 5px;
-      h5,
-      i {
-        margin: 5px 2px;
-      }
       i {
         cursor: pointer;
 		color: $secondaryTextColor;
+		margin: 5px 2px;
       }
-	  h5 {
+	  .card-title {
 		  color: $primaryTextColor;
+		  margin: 5px 0;
+		  font-weight: 300;
 	  }
     }
     .card-desc {
@@ -79,7 +78,7 @@
       overflow: auto;
       background: white;
       border-radius: 4px;
-      border: 1px solid $primaryTextColor;
+      box-shadow: 1px 2px 6px 0px #2f3a7d63;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -113,15 +112,16 @@
       .save-changes-btn {
         background-color: $primaryTextColor;
         color: white;
+		border: none;
         border-radius: 4px;
-        border: none;
         width: 100px;
         min-height: 40px;
       }
       .delete-btn {
-        background-color: transparent;
+        background-color: #ece9e9;
+              color: #1e2a70;
+			  border: none;
         border-radius: 4px;
-        border: 1px solid $primaryTextColor;
         width: 100px;
         min-height: 40px;
       }

@@ -38,8 +38,8 @@ export const ListsDetailsComponent = (props) => {
 					return (
 						<div className="list-tile">
 							<div className="tile-body" id={listId}>
-								<h3>{listTitle}</h3>
-								<h4>Cards</h4>
+								<h2 className="list-title">{listTitle}</h2>
+								<h4 className="lists-cards">Cards</h4>
 								<CardsDetails
 									currentListId={listId}
 								/>
