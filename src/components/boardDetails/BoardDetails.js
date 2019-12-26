@@ -50,4 +50,4 @@ export const BoardDetailsComponent = (props) => {
 			</div>
 		</div>
 	);
-}
+};

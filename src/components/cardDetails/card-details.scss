@@ -8,7 +8,7 @@
     flex-direction: column;
     position: relative;
     align-items: center;
-    height: 77px;
+    height: 85px;
     margin: 10px 0;
         box-shadow:1px 1px 3px 0px #2f3a7d63;
     .card-header {
@@ -35,7 +35,8 @@
     .card-desc {
       width: 90%;
 	  color: $secondaryTextColor;
-	  margin-bottom: 3px; 
+	  margin-bottom: 3px;
+	  padding-bottom: 5px;
 	  p{
 		  overflow: hidden;
 		  text-overflow: ellipsis;
