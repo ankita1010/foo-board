@@ -37,12 +37,26 @@
       color: $secondaryTextColor;
       margin-bottom: 3px;
       padding-bottom: 5px;
+	  display: flex;
       p {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         margin: 0;
       }
+	  .card-desc-text {
+		  width: 80%;
+		  opacity: 0.8;
+	  }
+	  .card-comments{
+		  color: gray;
+		  width: 20%;
+		  font-size: 12px;
+		  text-align: center;
+		  i{
+			  margin: 0 4px;
+		  }
+	  }
     }
     .list-options {
       position: absolute;

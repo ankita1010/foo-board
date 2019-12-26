@@ -44,7 +44,6 @@ export const CardsDetailsComponent = (props) => {
 	const clearDrag = () => {
 		updateCardState('onDragCardId', null);
 	};
-
 	if (!cardsForCurrentList.length)
 		return (
 			<p className="no-cards-msg">
@@ -66,7 +65,8 @@ export const CardsDetailsComponent = (props) => {
 					const {
 						cardTitle,
 						cardDesciption,
-						cardId
+						cardId,
+						comments
 					} = eachCardItem;
 					return (
 						<div
@@ -75,6 +75,7 @@ export const CardsDetailsComponent = (props) => {
 							onDragEnd={clearDrag}
 							data-cardid={cardId}
 							onDragStart={handleDrag}
+							id={cardId}
 						>
 							<div className="card-header">
 								<h3 className="card-title">{cardTitle}</h3>
@@ -93,7 +94,8 @@ export const CardsDetailsComponent = (props) => {
 								</div>
 							</div>
 							<div className="card-desc">
-								<p>{cardDesciption}</p>
+								<p className="card-desc-text">{cardDesciption}</p>
+								<p className="card-comments"><i className="fa fa-comment"/>{comments.length}</p>
 							</div>
 							{showList && otherLists.length && currentSelectedCard === cardId ?
 								<div className="list-options">
