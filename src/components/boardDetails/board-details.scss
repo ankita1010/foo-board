@@ -4,11 +4,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+	margin-top: 70px;
   .board-actions-and-details {
-    width: 100%;
+    width: 95%;
+	max-width: 1300px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 
     .board-header {

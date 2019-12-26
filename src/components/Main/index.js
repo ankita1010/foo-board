@@ -19,11 +19,17 @@ export const Main = (props) => {
 
 	if (currentBoard) return (
 		<div className="app-block">
+			<nav className="top-nav">
+				<h2>Foo Board</h2>
+			</nav>
 			<BoardDetails />
 		</div>);
 
 	return (
 		<div className="app-block">
+			<nav className="top-nav">
+				<h2>Foo Board</h2>
+			</nav>
 			<h1>WELCOME TO FOO BOARD</h1>
 			{
 				!fooBoards.length ?

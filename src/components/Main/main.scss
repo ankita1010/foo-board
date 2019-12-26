@@ -1,6 +1,23 @@
 @import "../../variables.scss";
 $fooBoardBg: white;
 .app-block {
+  .top-nav {
+    position: fixed;
+    top: 0;
+    background: $primaryTextColor;
+    height: 60px;
+    width: 100vw;
+	z-index: 99;
+    display: flex;
+    align-items: center;
+    h2 {
+      font-weight: 300;
+      margin: 0;
+      color: white;
+	  padding-left: 20px;
+	  font-size: 28px;
+    }
+  }
   min-width: 100vw;
   min-height: 100vh;
   background: white;
@@ -70,7 +87,7 @@ $fooBoardBg: white;
     }
     .forms-block {
       border-radius: 4px;
-       box-shadow: 1px 1px 10px 1px #1e2a7059;
+      box-shadow: 1px 1px 10px 1px #1e2a7059;
       padding: 30px 40px;
       width: 240px;
       background: white;
