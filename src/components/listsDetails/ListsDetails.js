@@ -8,7 +8,10 @@ export const ListsDetailsComponent = (props) => {
 		currentBoard,
 		lists,
 		addNewCard,
-		deleteListById
+		deleteListById,
+		moveCard,
+		onDragCardId,
+		updateCardState
 	} = props;
 	const listsForCurrentBoard = lists.filter(eachListItem => (
 		eachListItem.parentBoard === currentBoard
@@ -21,6 +24,15 @@ export const ListsDetailsComponent = (props) => {
 		const listTileEl = document.getElementById(listId);
 			listTileEl.scrollTop = listTileEl.scrollHeight;
 	};
+	const handleDropCard = (event) => {
+		const {listid} = event.currentTarget.dataset;
+		moveCard(onDragCardId, listid);
+		updateCardState('onDragCardId', null);
+	};
+	const handleDragOver = (event) => {
+		event.preventDefault();
+	}
+
 	if(!listsForCurrentBoard.length) 
 	return (
 		<div className="no-boards-msg">
@@ -36,7 +48,12 @@ export const ListsDetailsComponent = (props) => {
 						listId
 					} = eachListItem;
 					return (
-						<div className="list-tile">
+						<div className="list-tile-outer">
+						<div className="list-tile" 
+							onDrop={handleDropCard}
+							onDragOver={handleDragOver}
+							data-listid={listId}
+						>
 							<div className="tile-body" id={listId}>
 								<h2 className="list-title">{listTitle}</h2>
 								<h4 className="lists-cards">Cards</h4>
@@ -58,6 +75,7 @@ export const ListsDetailsComponent = (props) => {
 									Delete List
 								</button>
 							</div>
+						</div>
 						</div>
 					);
 				})

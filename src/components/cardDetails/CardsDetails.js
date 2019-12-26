@@ -13,9 +13,11 @@ export const CardsDetailsComponent = (props) => {
 	const {
 		currentListId,
 		cards,
+		onDragCardId,
 		lists,
 		editCardDetails,
 		deleteCard,
+		updateCardState,
 		moveCard
 	} = props;
 
@@ -34,14 +36,22 @@ export const CardsDetailsComponent = (props) => {
 			show: false,
 			currentSelectedCard: null
 		})
-	}
+	};
+	const handleDrag = (event) => {
+		const { cardid } = event.target.dataset;
+		updateCardState('onDragCardId', cardid);
+	};
+	const clearDrag = () => {
+		updateCardState('onDragCardId', null);
+	};
+
 	if (!cardsForCurrentList.length)
 		return (
 			<p className="no-cards-msg">
 				No cards added for this list!
 		</p>
 		);
-	const {currentSelectedCard, show: showList} = showListOptions;
+	const { currentSelectedCard, show: showList } = showListOptions;
 	return (
 		<div className="cards-wrapper">
 			<CardModal
@@ -59,7 +69,13 @@ export const CardsDetailsComponent = (props) => {
 						cardId
 					} = eachCardItem;
 					return (
-						<div className="card-tile">
+						<div
+							className={`card-tile ${onDragCardId === cardId ? 'dragging' : ''}`}
+							draggable={true}
+							onDragEnd={clearDrag}
+							data-cardid={cardId}
+							onDragStart={handleDrag}
+						>
 							<div className="card-header">
 								<h3 className="card-title">{cardTitle}</h3>
 								<div>
@@ -79,7 +95,7 @@ export const CardsDetailsComponent = (props) => {
 							<div className="card-desc">
 								<p>{cardDesciption}</p>
 							</div>
-							{showList && otherLists.length &&  currentSelectedCard === cardId ?
+							{showList && otherLists.length && currentSelectedCard === cardId ?
 								<div className="list-options">
 									{
 										otherLists.map(

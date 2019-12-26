@@ -49,4 +49,8 @@ export const deleteAllCardsByListIds = (listIds) => {
 		type: DELETE_ALL_CARDS_FOR_LISTIDS,
 		listIds
 	})
-}
+};
+export const updateCardState = (key, value) => ({
+	type: UPDATE_CARDS_STATE,
+	key, value
+})

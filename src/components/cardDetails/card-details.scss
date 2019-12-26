@@ -10,39 +10,39 @@
     align-items: center;
     height: 85px;
     margin: 10px 0;
-        box-shadow:1px 1px 3px 0px #2f3a7d63;
+    box-shadow: 1px 1px 3px 0px #2f3a7d63;
     .card-header {
-      width: 90%;
+      width: 95%;
       display: flex;
       justify-content: space-between;
-	  margin-top: 5px;
+      margin-top: 5px;
       i {
         cursor: pointer;
-		color: $secondaryTextColor;
-		margin: 5px 2px;
+        color: $secondaryTextColor;
+        margin: 5px 5px;
       }
-	  .card-title {
-		  color: $primaryTextColor;
-		  margin: 5px 0;
-		  font-weight: 300;
-		  height: 30px;
-		  max-width: 90%;
-		  overflow: hidden;
-		  text-overflow: ellipsis;
-		  white-space: nowrap;
-	  }
+      .card-title {
+        color: $primaryTextColor;
+        margin: 5px 0;
+        font-weight: 300;
+        height: 30px;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
     .card-desc {
-      width: 90%;
-	  color: $secondaryTextColor;
-	  margin-bottom: 3px;
-	  padding-bottom: 5px;
-	  p{
-		  overflow: hidden;
-		  text-overflow: ellipsis;
-		  white-space: nowrap;
-		  margin: 0;
-	  }
+      width: 95%;
+      color: $secondaryTextColor;
+      margin-bottom: 3px;
+      padding-bottom: 5px;
+      p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0;
+      }
     }
     .list-options {
       position: absolute;
@@ -52,8 +52,8 @@
       padding: 10px 20px;
       width: 59%;
       border-radius: 4px;
-	  cursor: pointer;
-	  z-index: 1;
+      cursor: pointer;
+      z-index: 1;
       div {
         display: flex;
         align-items: center;
@@ -63,7 +63,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-		  color: white;
+          color: white;
         }
         i {
           color: white;
@@ -102,13 +102,13 @@
         width: 90%;
         margin: 10px 0;
         height: 70px;
-		 .card-detail-input {
-			width: 80%;
-		}
+        .card-detail-input {
+          width: 80%;
+        }
       }
-	  button {
-		  font-size: 14px;
-	  }
+      button {
+        font-size: 14px;
+      }
       .modal-body {
         height: calc(100% - 125px);
         width: 90%;
@@ -127,15 +127,15 @@
       .save-changes-btn {
         background-color: $primaryTextColor;
         color: white;
-		border: none;
+        border: none;
         border-radius: 4px;
         width: 100px;
         min-height: 40px;
       }
       .delete-btn {
         background-color: #ece9e9;
-              color: #1e2a70;
-			  border: none;
+        color: #1e2a70;
+        border: none;
         border-radius: 4px;
         width: 100px;
         min-height: 40px;
@@ -148,7 +148,6 @@
         margin: 5px 0;
         button {
           width: 49%;
-		  
         }
       }
       .card-detail-input {

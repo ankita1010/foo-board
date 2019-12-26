@@ -2,7 +2,9 @@ import { ListsDetailsComponent } from './ListsDetails';
 import { connect } from 'react-redux';
 import {
 	addNewCard,
-	deleteListById
+	deleteListById,
+	moveCard,
+	updateCardState
 } from '../../actions';
 
 const mapStateToProps = (state) => {
@@ -24,6 +26,8 @@ export const ListsDetails = connect(
 	mapStateToProps,
 	{
 		addNewCard,
-		deleteListById
+		deleteListById,
+		moveCard,
+		updateCardState
 	}
 )(ListsDetailsComponent);

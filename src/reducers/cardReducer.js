@@ -8,7 +8,8 @@ import {
 } from '../constants/actionTypes';
 
 const initialCardState = {
-	cards: []
+	cards: [],
+	onDragCardId: null
 };
 
 export default (state = initialCardState, action) => {
@@ -17,8 +18,7 @@ export default (state = initialCardState, action) => {
 			const { key, value } = action;
 			return ({
 				...state,
-				key,
-				value
+				[key]: value
 			});
 		};
 		case ADD_NEW_CARD: {

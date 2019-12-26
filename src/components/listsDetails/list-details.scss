@@ -4,19 +4,26 @@ $tileBg: white;
 
 .list-details-block {
   width: 95%;
-  display: flex;
-  flex-direction: row;
+  display: block;
   overflow-x: scroll;
   margin: auto;
-  min-height: calc(100vh - 150px);
+  height: calc(100vh - 150px);
+  min-height: 500px;
   padding: 10px 10px;
-  align-items: flex-start;
-
-  .list-tile {
+ white-space: nowrap;
+.list-tile-outer{
         min-height: 300px;
     max-height: calc(100vh - 180px);
-	flex-shrink: 0;
+	display: inline-block;
 	width: 450px;
+	max-width: 70vw;
+	min-width: 250px;
+	   margin: 10px;
+	margin-right: 5px;
+  .list-tile {
+	  max-width: 100%;
+	 min-height: 300px;
+    max-height: calc(100vh - 200px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,8 +31,6 @@ $tileBg: white;
     position: relative;
     border-radius: 4px;
     box-shadow: 1px 1px 2px 1px lightgray;
-    margin: 10px;
-	margin-right: 5px;
     padding: 10px 20px;
     .tile-body {
       height: calc(100% - 50px);
@@ -84,10 +89,15 @@ $tileBg: white;
       .forms-block {
         bottom: 0px;
         position: absolute;
+		width: 90%;
         padding: 20px;
         background: white;
         border-radius: 4px;
         box-shadow: 1px 1px 10px 1px #1e2a7059;
+		.input-wrapper {
+			display: flex;
+			flex-direction: column;
+		}
         .save-and-cancel-btns {
           display: flex;
           justify-content: space-between;
@@ -111,4 +121,5 @@ $tileBg: white;
       }
     }
   }
+}
 }
